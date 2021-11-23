@@ -10,3 +10,7 @@ install(
         ARCHIVE DESTINATION /usr/local/lib
         PUBLIC_HEADER DESTINATION /usr/local/include
 )
+
+include(CTest)
+add_executable(socket_o.test test.cpp)
+add_test(NAME basic COMMAND socket_o.test)
