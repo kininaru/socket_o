@@ -3,7 +3,7 @@ project(socket_o)
 
 add_library(socket_o src/tcp.cpp)
 
-file(COPY include/socket/tcp.h DESTINATION /usr/local/include)
+file(COPY src/tcp.h DESTINATION /usr/local/include)
 
 install(
         TARGETS socket_o
