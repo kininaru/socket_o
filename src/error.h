@@ -1,0 +1,1 @@
+#define INVALID_ADDRESS 1
