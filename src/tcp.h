@@ -18,6 +18,7 @@ namespace socket_o {
         int connect();
         int close() const;
         std::string read(int _max) const;
+        char read_char() const;
         std::string read_line();
         ssize_t send(const std::string& _msg) const;
         ssize_t send_line(const std::string& _msg);

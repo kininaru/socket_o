@@ -20,8 +20,23 @@ std::string socket_o::tcp::read(int _max) const {
     return ret;
 }
 
-std::string socket_o::tcp::read_line() {
+char socket_o::tcp::read_char() const {
+    char buf;
+    ::read(this->client, &buf, 1);
+    return buf;
+}
 
+std::string socket_o::tcp::read_line() {
+    std::string ret;
+    while (true) {
+        char buf = this->read_char();
+        ret += buf;
+        if (this->new_line == "\r\n" && buf == '\r') {
+            buf = this->read_char();
+            ret += buf;
+            if (buf == '\n') return ret;
+        } else if (buf == '\n') return ret;
+    }
 }
 
 ssize_t socket_o::tcp::send(const std::string& _msg) const {
