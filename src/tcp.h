@@ -5,7 +5,7 @@
 
 namespace socket_o {
     class tcp {
-        int port;
+        int port, client{};
         std::string remote, new_line;
         struct sockaddr_in server_address{};
         void init();

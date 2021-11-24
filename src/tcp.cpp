@@ -49,5 +49,6 @@ void socket_o::tcp::init() {
     else this->config_ok = false;
     this->server_address.sin_port = htons(this->port);
     if (inet_pton(AF_INET, this->remote.c_str(), &server_address.sin_addr) <= 0) this->config_ok = false;
+    this->client = socket(this->server_address.sin_family, SOCK_STREAM, 0);
 }
 
