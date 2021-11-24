@@ -8,9 +8,9 @@ namespace socket_o {
         int port;
         std::string remote, new_line;
         struct sockaddr_in server_address{};
-
-        void init_server_address();
+        void init();
     public:
+        bool config_ok{};
         tcp(std::string _remote, int _port);
         tcp(std::string _remote, int _port, int _new_line);
         int connect();
