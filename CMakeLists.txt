@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(socket_o)
 
-add_library(socket_o src/tcp.cpp)
+add_library(socket_o src/tcp.cpp src/check.cpp)
 
 file(COPY src/tcp.h DESTINATION /usr/local/include/socket_o)
 
@@ -12,5 +12,10 @@ install(
 )
 
 include(CTest)
-add_executable(socket_o.test test.cpp)
+add_executable(
+        socket_o.test
+        test/test_start.cpp
+        test/test_check.cpp
+        src/check.cpp
+)
 add_test(NAME basic COMMAND socket_o.test)

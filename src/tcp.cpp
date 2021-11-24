@@ -1,6 +1,6 @@
 #include "tcp.h"
 #include "const.h"
-#include "remote.h"
+#include "check.h"
 
 #include <utility>
 
@@ -43,6 +43,6 @@ socket_o::tcp::tcp(std::string _remote, int _port) {
 }
 
 void socket_o::tcp::init_server_address() {
-    this->server_address.sin_family
+    this->server_address.sin_family;
 }
 
