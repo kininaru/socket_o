@@ -32,8 +32,8 @@ int socket_o::tcp::connect() {
     return ::connect(this->client, (struct sockaddr *) &(this->server_address), sizeof(this->server_address));
 }
 
-int socket_o::tcp::close() {
-
+int socket_o::tcp::close() const {
+    return ::close(this->client);
 }
 
 socket_o::tcp::tcp(std::string _remote, int _port) {

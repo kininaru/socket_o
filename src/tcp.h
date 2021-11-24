@@ -3,6 +3,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include "sys/socket.h"
+#include "unistd.h"
 
 namespace socket_o {
     class tcp {
@@ -15,7 +16,7 @@ namespace socket_o {
         tcp(std::string _remote, int _port);
         tcp(std::string _remote, int _port, int _new_line);
         int connect();
-        int close();
+        int close() const;
         std::string read();
         std::string read_line();
         ssize_t send(const std::string& _msg) const;
