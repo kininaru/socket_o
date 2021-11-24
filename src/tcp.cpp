@@ -29,7 +29,7 @@ int socket_o::tcp::send_line(const std::string& _msg) {
 }
 
 int socket_o::tcp::connect() {
-
+    return ::connect(this->client, (struct sockaddr *) &(this->server_address), sizeof(this->server_address));
 }
 
 int socket_o::tcp::close() {

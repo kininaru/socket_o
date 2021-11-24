@@ -2,6 +2,7 @@
 #include "error.h"
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include "sys/socket.h"
 
 namespace socket_o {
     class tcp {
