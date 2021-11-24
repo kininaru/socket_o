@@ -17,7 +17,7 @@ namespace socket_o {
         tcp(std::string _remote, int _port, int _new_line);
         int connect();
         int close() const;
-        std::string read();
+        std::string read(int _max) const;
         std::string read_line();
         ssize_t send(const std::string& _msg) const;
         ssize_t send_line(const std::string& _msg);

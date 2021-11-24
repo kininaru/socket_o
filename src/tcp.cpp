@@ -12,8 +12,12 @@ socket_o::tcp::tcp(std::string _remote, int _port, int _new_line) {
     init();
 }
 
-std::string socket_o::tcp::read() {
-
+std::string socket_o::tcp::read(int _max) const {
+    char buf[_max];
+    size_t num = ::read(this->client, buf, _max);
+    buf[num] = 0;
+    std::string ret(buf);
+    return ret;
 }
 
 std::string socket_o::tcp::read_line() {
