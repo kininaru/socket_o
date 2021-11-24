@@ -20,12 +20,12 @@ std::string socket_o::tcp::read_line() {
 
 }
 
-int socket_o::tcp::send(const std::string& _msg) {
-
+ssize_t socket_o::tcp::send(const std::string& _msg) const {
+    return ::send(this->client, _msg.c_str(), _msg.size(), 0);
 }
 
-int socket_o::tcp::send_line(const std::string& _msg) {
-
+ssize_t socket_o::tcp::send_line(const std::string& _msg) {
+    return this->send(_msg + this->new_line);
 }
 
 int socket_o::tcp::connect() {
